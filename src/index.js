@@ -60,7 +60,9 @@ window.onload = () => {
             );
           }
           infomation.textContent = `${infomation.textContent}: ${weatherData.days[0][e.className]}`;
-          e.appendChild(infomation);
+          if (['temp', 'feelslike'].includes(e.className)){
+            infomation.textContent += '°C';
+          }
         });
         console.log("done");
       })

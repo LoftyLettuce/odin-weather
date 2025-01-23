@@ -2,9 +2,19 @@
 *{
   margin: 0;
   padding: 0;
+  color: inherit;
+  border-radius: 5px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /*style */
+:root
+{
+  ---signify: #fbbf24;
+  ---font-color: #44403c;
+  ---border-color: #0a0a0a;
+  ---background-color: #7dd3fc;
+}
 body
 {
   height: 100vh;
@@ -12,26 +22,61 @@ body
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: var(---background-color);
+  color: var(---font-color);
+}
+.search-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.search-wrapper button{
+  width: 50%;
+  padding: 2%;
+}
+.search-wrapper input{
+  padding: 1% 2%;
+  text-align: center;
+}
+.day-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 #small
 {
-  width: 80vw;
+  width: 80%;
   height: 50vh;
   overflow: hidden;
   background-color: transparent;
   position: relative;
+  border: 1px solid var(---border-color);
 }
 #big
 {
   display: flex;
   position: absolute;
+  width: 100%;
 }
 #big div
 {
-  flex: 0 0 80vw;
+  flex: 0 0 100%;
   height: 50vh;
-  background-color: red;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f0f9ff;
+}
+.button-wraper{
+  width: 80vw;
+  display: flex;
+  gap: 10vw;
+  justify-content: center;
+}
+.button-wraper button
+{
+  padding: 1%;
+  background-color: var(---signify);
+  border: 1px solid var(---border-color);
 }
