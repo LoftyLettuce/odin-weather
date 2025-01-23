@@ -1,4 +1,5 @@
 import "./styles.css";
+import { changeDay } from "./changeDay";
 async function weatherFrom(city) {
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=CGRJF9AWVHYYTBGAV53C7SUQR&contentType=json`;
   try {
@@ -46,26 +47,28 @@ function imageCarousel() {
 window.onload = () => {
   imageCarousel();
   const searchBtn = document.getElementById("search");
+  let data = false;
   searchBtn.addEventListener("click", () => {
     const cityName = document.getElementById("city").value;
     console.log("waiting...");
     weatherFrom(cityName)
       .then((weatherData) => {
-        Array.from(document.getElementById("big").children).forEach((e) => {
-          const infomation = e.querySelector("div");
-          if (infomation.textContent.includes(":")) {
-            infomation.textContent = infomation.textContent.slice(
-              0,
-              infomation.textContent.indexOf(":"),
-            );
-          }
-          infomation.textContent = `${infomation.textContent}: ${weatherData.days[0][e.className]}`;
-          if (['temp', 'feelslike'].includes(e.className)){
-            infomation.textContent += '°C';
-          }
-        });
-        console.log("done");
+        data = weatherData;
+        (document.querySelector('.day-wrapper').children)[0].click();
       })
       .catch(alert);
   });
+  let recentProject = false;
+  Array.from(document.querySelector('.day-wrapper').children).forEach((e, i)=>{
+    e.addEventListener('click', ()=>{
+      if (data){
+        if (recentProject){
+          recentProject.classList.remove('focus');
+        }
+        recentProject = e;
+        recentProject.classList.add('focus');
+        changeDay(i, data);
+      }
+    })
+  })
 };
