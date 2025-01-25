@@ -1,31 +1,40 @@
 /* reset */
-*{
+* {
   margin: 0;
   padding: 0;
   color: inherit;
   border-radius: 5px;
-  font-family: "Offside",system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Offside",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 /*style */
-:root.dark
-{
+:root.dark {
   ---signify: #0d9488;
   ---font-color: #cbd5e1;
   ---border-color: #f9fafb;
   ---background-color: #082f49;
   ---secondary-color: #0f172a;
 }
-:root
-{
+:root {
   ---signify: #fbbf24;
   ---font-color: #44403c;
   ---border-color: #0a0a0a;
   ---background-color: #7dd3fc;
   ---secondary-color: #f0f9ff;
 }
-body
-{
+body {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,7 +43,7 @@ body
   background-color: var(---background-color);
   color: var(---font-color);
 }
-.toggle-theme{
+.toggle-theme {
   ---border-radius: 10%;
   ---top: 2%;
   ---left: 2%;
@@ -46,83 +55,83 @@ body
   border-radius: var(---border-radius);
   border: 1px solid var(---border-color);
 }
-.toggle-wrapper{
+.toggle-wrapper {
   position: relative;
 }
-.toggle-theme input{
+.toggle-theme input {
   display: block;
   width: 100%;
   position: absolute;
   border-radius: var(---border-radius);
   opacity: 0;
 }
-.toggle-theme span
-{
+.toggle-theme span {
   ---visibility: hidden;
   width: 50%;
   border-right: 1px solid var(---border-color);
 }
-.toggle-theme span::after{
+.toggle-theme span::after {
   content: url(./moon-waxing-crescent.svg);
   width: 100%;
   left: 100%;
   height: inherit;
   visibility: var(---visibility);
 }
-.toggle-theme span, .toggle-theme span::after{
+.toggle-theme span,
+.toggle-theme span::after {
   position: absolute;
   top: 0;
   display: block;
   background-color: var(---signify);
   border-radius: var(---border-radius);
 }
-.toggle-theme *{
+.toggle-theme * {
   height: 100%;
 }
-.toggle-theme input:checked+span{
+.toggle-theme input:checked + span {
   visibility: hidden;
   ---visibility: visible;
 }
-.toggle-theme input + span{
+.toggle-theme input + span {
   visibility: visible;
   ---visibility: hidden;
 }
-.search-wrapper{
+.search-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.search-wrapper button, .search-wrapper input{
+.search-wrapper button,
+.search-wrapper input {
   border: 1px solid var(---border-color);
 }
-.search-wrapper button{
+.search-wrapper button {
   padding: 5px;
   height: 5vh;
   max-height: 50px;
   min-height: fit-content;
   background-color: var(---signify);
 }
-.search-wrapper input{
+.search-wrapper input {
   background-color: var(---secondary-color);
   padding: 1% 2%;
   text-align: center;
 }
-.day-wrapper{
+.day-wrapper {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
-.day-wrapper button{
+.day-wrapper button {
   background-color: var(---secondary-color);
   border: 1px var(---border-color) solid;
   padding: 5px;
 }
-.day-wrapper .focus{
+.day-wrapper .focus {
   background-color: var(---signify);
 }
-#small
-{
+#small {
   width: 80%;
   height: 50vh;
   overflow: hidden;
@@ -130,43 +139,40 @@ body
   position: relative;
   border: 1px solid var(---border-color);
 }
-#big
-{
+#big {
   display: flex;
   position: absolute;
   width: 100%;
 }
-#big>div
-{
+#big > div {
   flex: 0 0 100%;
   height: 50vh;
   background-color: var(---secondary-color);
   padding: 2%;
   box-sizing: border-box;
 }
-.board{
+.board {
   display: grid;
-  grid-template-areas: 
-  "place1 place2 place3 place4 place5"
-  "place6 place7 place8 place9 place10";
+  grid-template-areas:
+    "place1 place2 place3 place4 place5"
+    "place6 place7 place8 place9 place10";
   align-items: start;
   overflow: hidden;
 }
-.button-wraper{
+.button-wraper {
   width: 80vw;
   display: flex;
   gap: 10vw;
   justify-content: center;
 }
-.button-wraper button
-{
+.button-wraper button {
   padding: 1%;
   background-color: var(---signify);
   border: 1px solid var(---border-color);
 }
-svg{
+svg {
   height: 100%;
 }
-path{
+path {
   fill: var(---border-color);
 }

@@ -25,27 +25,31 @@ window.onload = () => {
     weatherFrom(cityName)
       .then((weatherData) => {
         data = weatherData;
-        (document.querySelector('.day-wrapper').children)[0].click();
+        document.querySelector(".day-wrapper").children[0].click();
       })
       .catch(alert);
   });
   let recentProject = false;
-  Array.from(document.querySelector('.day-wrapper').children).forEach((e, i)=>{
-    e.addEventListener('click', ()=>{
-      if (data){
-        if (recentProject){
-          recentProject.classList.remove('focus');
+  Array.from(document.querySelector(".day-wrapper").children).forEach(
+    (e, i) => {
+      e.addEventListener("click", () => {
+        if (data) {
+          if (recentProject) {
+            recentProject.classList.remove("focus");
+          }
+          recentProject = e;
+          recentProject.classList.add("focus");
+          changeDay(i, data);
         }
-        recentProject = e;
-        recentProject.classList.add('focus');
-        changeDay(i, data);
-      }
-    })
-  })
-  document.querySelector(".toggle-theme input").addEventListener("click",()=>{
-    let themeIsDark = document.querySelector(".toggle-theme input:checked");
-    const root = document.documentElement;
-    root.className = themeIsDark?"dark":"light";
-  })
+      });
+    },
+  );
+  document
+    .querySelector(".toggle-theme input")
+    .addEventListener("click", () => {
+      let themeIsDark = document.querySelector(".toggle-theme input:checked");
+      const root = document.documentElement;
+      root.className = themeIsDark ? "dark" : "light";
+    });
   setImage(4);
 };

@@ -1,4 +1,4 @@
-export function changeDay(number, weatherData){
+export function changeDay(number, weatherData) {
   Array.from(document.getElementById("big").children).forEach((e) => {
     const infomation = e.querySelector("div");
     if (infomation.textContent.includes(":")) {
@@ -8,8 +8,8 @@ export function changeDay(number, weatherData){
       );
     }
     infomation.textContent = `${infomation.textContent}: ${weatherData.days[number][e.classList[0]]}`;
-    if (['temp', 'feelslike'].includes(e.classList[0])){
-      infomation.textContent += '°C';
+    if (["temp", "feelslike"].includes(e.classList[0])) {
+      infomation.textContent += "°C";
     }
   });
   console.log("done");
