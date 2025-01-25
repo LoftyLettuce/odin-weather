@@ -7,8 +7,8 @@ export function changeDay(number, weatherData){
         infomation.textContent.indexOf(":"),
       );
     }
-    infomation.textContent = `${infomation.textContent}: ${weatherData.days[number][e.className]}`;
-    if (['temp', 'feelslike'].includes(e.className)){
+    infomation.textContent = `${infomation.textContent}: ${weatherData.days[number][e.classList[0]]}`;
+    if (['temp', 'feelslike'].includes(e.classList[0])){
       infomation.textContent += '°C';
     }
   });

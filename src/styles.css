@@ -41,33 +41,43 @@ body
   position: absolute;
   top: var(---top);
   left: var(---left);
-  width: 40px;
-  height: 20px;
+  width: 60px;
+  height: 30px;
   border-radius: var(---border-radius);
   border: 1px solid var(---border-color);
 }
+.toggle-wrapper{
+  position: relative;
+}
 .toggle-theme input{
-  position: absolute;
-  top: var(---top);
-  left: var(---left);
+  display: block;
   width: 100%;
-  height: 100%;
+  position: absolute;
   border-radius: var(---border-radius);
   opacity: 0;
 }
 .toggle-theme span
 {
   ---visibility: hidden;
+  width: 50%;
+  border-right: 1px solid var(---border-color);
+}
+.toggle-theme span::after{
+  content: url(./moon-waxing-crescent.svg);
+  width: 100%;
+  left: 100%;
+  height: inherit;
+  visibility: var(---visibility);
 }
 .toggle-theme span, .toggle-theme span::after{
-  position: relative;
+  position: absolute;
   top: 0;
   display: block;
-  width: 50%;
-  height: 100%;
-  background-color: red;
+  background-color: var(---signify);
   border-radius: var(---border-radius);
-  border: 0;
+}
+.toggle-theme *{
+  height: 100%;
 }
 .toggle-theme input:checked+span{
   visibility: hidden;
@@ -77,24 +87,20 @@ body
   visibility: visible;
   ---visibility: hidden;
 }
-.toggle-theme span::after{
-  content: "";
-  width: 100%;
-  left: 100%;
-  visibility: var(---visibility);
-}
 .search-wrapper{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.search-wrapper *{
+.search-wrapper button, .search-wrapper input{
   border: 1px solid var(---border-color);
 }
 .search-wrapper button{
-  width: 50%;
-  padding: 2%;
+  padding: 5px;
+  height: 5vh;
+  max-height: 50px;
+  min-height: fit-content;
   background-color: var(---signify);
 }
 .search-wrapper input{
@@ -110,6 +116,7 @@ body
 .day-wrapper button{
   background-color: var(---secondary-color);
   border: 1px var(---border-color) solid;
+  padding: 5px;
 }
 .day-wrapper .focus{
   background-color: var(---signify);
@@ -129,14 +136,21 @@ body
   position: absolute;
   width: 100%;
 }
-#big div
+#big>div
 {
   flex: 0 0 100%;
   height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: var(---secondary-color);
+  padding: 2%;
+  box-sizing: border-box;
+}
+.board{
+  display: grid;
+  grid-template-areas: 
+  "place1 place2 place3 place4 place5"
+  "place6 place7 place8 place9 place10";
+  align-items: start;
+  overflow: hidden;
 }
 .button-wraper{
   width: 80vw;
@@ -149,4 +163,10 @@ body
   padding: 1%;
   background-color: var(---signify);
   border: 1px solid var(---border-color);
+}
+svg{
+  height: 100%;
+}
+path{
+  fill: var(---border-color);
 }

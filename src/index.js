@@ -1,6 +1,7 @@
 import "./styles.css";
 import { changeDay } from "./changeDay";
 import { imageCarousel } from "./imageCarousel";
+import { setImage } from "./randomImage";
 async function weatherFrom(city) {
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=CGRJF9AWVHYYTBGAV53C7SUQR&contentType=json`;
   try {
@@ -46,4 +47,5 @@ window.onload = () => {
     const root = document.documentElement;
     root.className = themeIsDark?"dark":"light";
   })
+  setImage(4);
 };
